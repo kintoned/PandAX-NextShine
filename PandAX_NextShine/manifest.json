@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "PandAX NextShine",
+  "version": "1.4",
+  "description": "Enhance your PandA experience.",
+  "icons": {"16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"},
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://panda.ecs.kyoto-u.ac.jp/*",
+    "https://www.k.kyoto-u.ac.jp/*",
+    "https://authidp1.iimc.kyoto-u.ac.jp/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://panda.ecs.kyoto-u.ac.jp/*"],
+      "js": ["jszip.js", "content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}

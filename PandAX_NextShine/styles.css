@@ -1,0 +1,122 @@
+#panda-extension-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  z-index: 99999;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+  padding: 10px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  /* No default transition to avoid animation on page load */
+}
+
+#panda-extension-sidebar.panda-transition {
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+/* Collapsed state handled via inline styles or class, typically transform translateX(-100%) */
+#panda-extension-sidebar.collapsed {
+  /* Transform will be calculated in JS based on width */
+}
+
+#panda-extension-sidebar h2 {
+  font-size: 1.2rem;
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#panda-extension-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#panda-sidebar-resizer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: ew-resize;
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+#panda-sidebar-resizer:hover {
+  background-color: #555;
+}
+
+.panda-assignment-card {
+  background-color: #444;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #888;
+}
+
+.panda-assignment-card.urgent {
+  border-left-color: #ff4444; /* Red < 24h */
+}
+
+.panda-assignment-card.warning {
+  border-left-color: #ffbb33; /* Yellow < 5 days */
+}
+
+.panda-assignment-card.safe {
+  border-left-color: #00C851; /* Green < 2 weeks */
+}
+
+.panda-assignment-card.far-future {
+  border-left-color: #d3d3d3; /* Light Gray >= 2 weeks */
+}
+
+.panda-card-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.panda-card-course {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.panda-card-due {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.panda-card-desc {
+  font-size: 0.8rem;
+  color: #ddd;
+  background: #222;
+  padding: 5px;
+  border-radius: 3px;
+  max-height: 100px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+}
+
+/* Class for body transition */
+body.panda-transition {
+  transition: margin-left 0.3s ease;
+}
